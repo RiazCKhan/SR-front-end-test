@@ -2,14 +2,18 @@ import './ShipmentListItem.css'
 
 export default function ShipmentListItem(props) {
 
-const { driver, temp, truck, trailer } = props
+const { driver, driverOne, driverTwo, temp, truck, trailer } = props
 
   return (
     <>
       <section className='shipment-card'>
         <article>
           <div>{driver}</div>
-          <input placeholder="String" />
+          <select>
+            <option> Select </option>
+            <option> {driverOne} </option>
+            <option> {driverTwo} </option>
+          </select>
         </article>
 
         <article>
