@@ -5,6 +5,9 @@ import augShipment from '../data/api-data1';
 export default function PurchaseList() {
 
   const [customerName, setCustomerName] = useState({})
+  const [purchaseOrder, setPurchaseOrder] = useState({})
+  const [shipperName, setShipperName] = useState({})
+  const [caseNumber, setCaseNumber] = useState({})
 
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
@@ -12,7 +15,24 @@ export default function PurchaseList() {
     return updateName
   }
 
-  console.log(customerName)
+  const updatePurchaseHandler = (index, purchaseOrder, data) => {
+    let updatePurchase = Object.assign({}, purchaseOrder, data)
+    updatePurchase[index] = data
+    return updatePurchase
+  }
+
+  const updateShipperHandler = (index, shipperName, data) => {
+    let updateShipper = Object.assign({}, shipperName, data)
+    updateShipper[index] = data
+    return updateShipper
+  }
+
+  const updateCaseHandler = (index, caseNumber, data) => {
+    let updateCase = Object.assign({}, caseNumber, data)
+    updateCase[index] = data
+    return updateCase
+  }
+
 
   const allPurchaseOrders = augShipment[0].elements
   const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
