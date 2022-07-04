@@ -1,27 +1,27 @@
-import './PurchaseListItem.css';
+import './PurchaseListItem.css'
 
 export default function PurchaseListItem() {
   return (
-    <article className='purchase-card'>
-      <section>
+    <section className='purchase-card'>
+      <article>
         <div>Customer #</div>
         <input placeholder="String" />
-      </section>
+      </article>
 
-      <section>
+      <article>
         <div>Purchase Order #</div>
         <input placeholder="String" />
-      </section>
+      </article>
 
-      <section>
+      <article>
         <div>Shipper</div>
         <input placeholder="String" />
-      </section>
+      </article>
 
-      <section>
+      <article>
         <div>Cases</div>
         <input placeholder="String" />
-      </section>
-    </article>
+      </article>
+    </section>
   )
 }
