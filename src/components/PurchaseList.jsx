@@ -19,6 +19,7 @@ export default function PurchaseList() {
 
   return (
     <>
+      <h3>{augShipment[0]['sectionTitle']}</h3>
       {eachPurchaseOrder}
     </>
   )
