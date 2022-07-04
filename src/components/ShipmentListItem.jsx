@@ -14,7 +14,7 @@ const { driver, temp, truck, trailer } = props
 
         <article>
           <div>{temp}</div>
-          <input placeholder="String" />
+          <input placeholder="Number" />
         </article>
       </section>
 

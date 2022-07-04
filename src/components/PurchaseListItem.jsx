@@ -23,7 +23,7 @@ const { customer, purchaseOrderNumber, shipper, cases } = props
 
       <article>
         <div>{cases}</div>
-        <input placeholder="String" />
+        <input placeholder="Number" />
       </article>
     </section>
   )
