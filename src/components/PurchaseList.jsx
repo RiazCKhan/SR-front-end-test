@@ -12,6 +12,7 @@ export default function PurchaseList() {
   console.log(customerName)
   console.log(purchaseOrder)
   console.log(shipperName)
+  console.log(caseNumber)
 
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
@@ -36,7 +37,6 @@ export default function PurchaseList() {
     updateCase[index] = data
     return updateCase
   }
-
 
   const allPurchaseOrders = augShipment[0].elements
   const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
