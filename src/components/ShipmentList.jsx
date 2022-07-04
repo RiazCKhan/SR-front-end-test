@@ -12,9 +12,16 @@ export default function ShipmentList() {
         driver={order.list[0]['name']}
         driverOne={order.list[0]['elements'][0]['value']}
         driverTwo={order.list[0]['elements'][1]['value']}
+
         temp={order.list[1]['name']}
+
         truck={order.list[2]['name']}
+        truckOne={order.list[2]['elements'][0]['value']}
+        truckTwo={order.list[2]['elements'][1]['value']}
+
         trailer={order.list[3]['name']}
+        trailerOne={order.list[3]['elements'][0]['value']}
+        trailerTwo={order.list[3]['elements'][1]['value']}
       />
     )
   })
