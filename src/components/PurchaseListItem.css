@@ -1,4 +1,8 @@
 .purchase-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  padding: 1.5rem;
 }

@@ -1,8 +1,16 @@
 .shipment-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1.5rem;
 }
 
 .shipment-content {
-  width: 10rem;
+  width: 15rem;
+}
+
+.shipment-content-temp{
+  width: 14.5rem;
 }

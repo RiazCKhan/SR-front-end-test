@@ -20,7 +20,7 @@ export default function ShipmentListItem(props) {
 
         <article>
           <div>{temp}</div>
-          <input placeholder="Number" />
+          <input className='shipment-content-temp' placeholder="Number" />
         </article>
       </section>
 
