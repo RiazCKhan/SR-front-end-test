@@ -1,4 +1,4 @@
-const data1 = [{
+const augShipment = [{
   id: 1,
   sectionTitle: 'Shipments August',
   type: 'list',
@@ -275,3 +275,5 @@ elements: [
   }
 ]
 }]
+
+export default augShipment;
