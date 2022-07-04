@@ -3,7 +3,9 @@ import './PurchaseListItem.css'
 
 export default function PurchaseListItem(props) {
 
-  const { customer, purchaseOrderNumber, shipper, cases, index, customerName, updateHandler } = props
+  const { index, customer, purchaseOrderNumber, shipper, cases, 
+    customerName, setCustomerName, updateNameHandler,
+   } = props
 
   return (
     <section className='purchase-card'>
@@ -11,11 +13,10 @@ export default function PurchaseListItem(props) {
         <div>{customer}</div>
         <input
           type="text"
-          name="customerName"
-          id="customerName"
-          value={customerName[index]}
+          name="customer-name"
           placeholder="String"
-          onChange={(event) => updateHandler(index, { customerName: event.target.value })} />
+          value={customerName[index] || ""}
+          onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))} />
       </article>
 
       <article>
