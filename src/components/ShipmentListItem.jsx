@@ -1,28 +1,31 @@
 import './ShipmentListItem.css'
 
-export default function ShipmentListItem() {
+export default function ShipmentListItem(props) {
+
+const { driver, temp, truck, trailer } = props
+
   return (
     <>
       <section className='shipment-card'>
         <article>
-          <div>Driver</div>
+          <div>{driver}</div>
           <input placeholder="String" />
         </article>
 
         <article>
-          <div>Temp</div>
+          <div>{temp}</div>
           <input placeholder="String" />
         </article>
       </section>
 
       <section className='shipment-card'>
         <article>
-          <div>Truck</div>
+          <div>{truck}</div>
           <input placeholder="String" />
         </article>
 
         <article>
-          <div>Trailer</div>
+          <div>{trailer}</div>
           <input placeholder="String" />
         </article>
       </section>
