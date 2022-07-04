@@ -14,7 +14,7 @@ function App() {
   return (
     <section className='App'>
       <div className='form-content'>
-      <h1>Hello World</h1>
+      <h1>Form Title</h1>
       <PurchaseList />
       <ShipmentList />
       </div>
