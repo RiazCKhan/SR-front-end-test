@@ -11,7 +11,7 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{driver}</div>
-          <select>
+          <select className='shipment-content'>
             <option> Select </option>
             <option> {driverOne} </option>
             <option> {driverTwo} </option>
@@ -27,7 +27,7 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{truck}</div>
-          <select>
+          <select className='shipment-content'>
             <option> Select </option>
             <option> {truckOne} </option>
           <option> {truckTwo} </option>
@@ -36,7 +36,7 @@ export default function ShipmentListItem(props) {
 
         <article>
           <div>{trailer}</div>
-          <select>
+          <select className='shipment-content'>
             <option> Select </option>
             <option> {trailerOne} </option>
             <option> {trailerTwo} </option>
