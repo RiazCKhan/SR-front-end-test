@@ -9,6 +9,9 @@ export default function PurchaseList() {
   const [shipperName, setShipperName] = useState({})
   const [caseNumber, setCaseNumber] = useState({})
 
+  console.log(customerName)
+  console.log(purchaseOrder)
+
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
     updateName[index] = data
@@ -16,19 +19,19 @@ export default function PurchaseList() {
   }
 
   const updatePurchaseHandler = (index, purchaseOrder, data) => {
-    let updatePurchase = Object.assign({}, purchaseOrder, data)
+    let updatePurchase = Object.assign({}, purchaseOrder)
     updatePurchase[index] = data
     return updatePurchase
   }
 
   const updateShipperHandler = (index, shipperName, data) => {
-    let updateShipper = Object.assign({}, shipperName, data)
+    let updateShipper = Object.assign({}, shipperName)
     updateShipper[index] = data
     return updateShipper
   }
 
   const updateCaseHandler = (index, caseNumber, data) => {
-    let updateCase = Object.assign({}, caseNumber, data)
+    let updateCase = Object.assign({}, caseNumber)
     updateCase[index] = data
     return updateCase
   }
@@ -45,9 +48,14 @@ export default function PurchaseList() {
         purchaseOrderNumber={order.list[1]['name']}
         shipper={order.list[2]['name']}
         cases={order.list[3]['name']}
+
         customerName={customerName}
         setCustomerName={setCustomerName}
         updateNameHandler={updateNameHandler}
+
+        purchaseOrder={purchaseOrder}
+        setPurchaseOrder={setPurchaseOrder}
+        updatePurchaseHandler={updatePurchaseHandler}
       />
     )
   })

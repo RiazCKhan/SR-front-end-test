@@ -3,9 +3,10 @@ import './PurchaseListItem.css'
 
 export default function PurchaseListItem(props) {
 
-  const { index, customer, purchaseOrderNumber, shipper, cases, 
+  const { index, customer, purchaseOrderNumber, shipper, cases,
     customerName, setCustomerName, updateNameHandler,
-   } = props
+    purchaseOrder, setPurchaseOrder, updatePurchaseHandler
+  } = props
 
   return (
     <section className='purchase-card'>
@@ -24,9 +25,9 @@ export default function PurchaseListItem(props) {
         <input
           typeof='text'
           name="purchase-order-number"
-          // value={purchaseOrderNumberInfo}
+          value={purchaseOrder[index] || ""}
           placeholder="String"
-          onChange={(event) => { }} />
+          onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))} />
       </article>
 
       <article>
