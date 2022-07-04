@@ -3,7 +3,8 @@ import './index.css';
 
 import PurchaseList from './components/PurchaseList';
 import PurchaseListItem from './components/PurchaseListItem';
-import Shipment from './components/Shipment';
+import ShipmentList from './components/ShipmentList';
+import ShipmentListItem from './components/ShipmentListItem';
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,7 +14,7 @@ function App() {
   return (
     <section className='App'>
       <h1>Hello World</h1>
-      <PurchaseList />
+    <ShipmentListItem />
     </section>
   );
 }
