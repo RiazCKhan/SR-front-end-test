@@ -2,6 +2,22 @@ body {
   overflow: hidden;
 }
 
+h1 {
+  padding-left: 1rem;
+}
+
+h3 {
+  padding-left: 2rem;
+}
+
+article {
+  padding: 0.5rem
+}
+
+div {
+  padding-bottom: 0.5rem;
+}
+
 .App {
   display: flex;
   flex-direction: column;
