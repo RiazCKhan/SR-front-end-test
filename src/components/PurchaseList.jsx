@@ -1,11 +1,11 @@
-import PurchaseListItem from "./PurchaseListItem"
-import augShipment from '../data/api-data1'
+import PurchaseListItem from "./PurchaseListItem";
+import augShipment from '../data/api-data1';
 
 export default function PurchaseList() {
 
-  const allOrders = augShipment[0].elements
+  const allPurchaseOrders = augShipment[0].elements
 
-  const eachOrder = allOrders.map((order) => {
+  const eachPurchaseOrder = allOrders.map((order) => {
     return (
       <PurchaseListItem
         key={order.id}
@@ -19,7 +19,7 @@ export default function PurchaseList() {
 
   return (
     <>
-      {eachOrder}
+      {eachPurchaseOrder}
     </>
   )
 }
