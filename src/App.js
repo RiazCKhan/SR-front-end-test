@@ -12,7 +12,7 @@ import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   return (
-    <section className='App'>
+    <section className='main'>
       <div className='form-content'>
       <h1>Form Title</h1>
       <PurchaseList />
