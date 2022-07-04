@@ -5,7 +5,7 @@ export default function PurchaseList() {
 
   const allPurchaseOrders = augShipment[0].elements
 
-  const eachPurchaseOrder = allOrders.map((order) => {
+  const eachPurchaseOrder = allPurchaseOrders.map((order) => {
     return (
       <PurchaseListItem
         key={order.id}
