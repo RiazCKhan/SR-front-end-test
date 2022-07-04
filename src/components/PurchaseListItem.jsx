@@ -1,5 +1,27 @@
+import './PurchaseListItem.css';
+
 export default function PurchaseListItem() {
-  return(
-    <h1>PurchaseListItem</h1>
+  return (
+    <article className='purchase-card'>
+      <section>
+        <div>Customer #</div>
+        <input placeholder="String" />
+      </section>
+
+      <section>
+        <div>Purchase Order #</div>
+        <input placeholder="String" />
+      </section>
+
+      <section>
+        <div>Shipper</div>
+        <input placeholder="String" />
+      </section>
+
+      <section>
+        <div>Cases</div>
+        <input placeholder="String" />
+      </section>
+    </article>
   )
 }
