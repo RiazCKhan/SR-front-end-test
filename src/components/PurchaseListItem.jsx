@@ -5,7 +5,10 @@ export default function PurchaseListItem(props) {
 
   const { index, customer, purchaseOrderNumber, shipper, cases,
     customerName, setCustomerName, updateNameHandler,
-    purchaseOrder, setPurchaseOrder, updatePurchaseHandler
+    purchaseOrder, setPurchaseOrder, updatePurchaseHandler,
+    shipperName, setShipperName, updateShipperHandler,
+    caseNumber, setCaseNumber, updateCaseHandler
+
   } = props
 
   return (
@@ -17,7 +20,8 @@ export default function PurchaseListItem(props) {
           name="customer-name"
           placeholder="String"
           value={customerName[index] || ""}
-          onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))} />
+          onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))}
+        />
       </article>
 
       <article>
@@ -27,7 +31,8 @@ export default function PurchaseListItem(props) {
           name="purchase-order-number"
           value={purchaseOrder[index] || ""}
           placeholder="String"
-          onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))} />
+          onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
+        />
       </article>
 
       <article>
@@ -35,9 +40,10 @@ export default function PurchaseListItem(props) {
         <input
           type="text"
           name="shipper"
-          // value={purchaseOrderShipperInfo}
+          value={shipperName[index] || ""}
           placeholder="String"
-          onChange={(event) => { }} />
+          onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
+        />
       </article>
 
       <article>
@@ -45,9 +51,10 @@ export default function PurchaseListItem(props) {
         <input
           type="text"
           name="cases"
-          // value={purchaseOrderCasesInfo}
+          value={caseNumber[index] || ""}
           placeholder="Number"
-          onChange={(event) => { }} />
+          onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
+        />
       </article>
     </section>
   )

@@ -11,6 +11,7 @@ export default function PurchaseList() {
 
   console.log(customerName)
   console.log(purchaseOrder)
+  console.log(shipperName)
 
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
@@ -56,6 +57,14 @@ export default function PurchaseList() {
         purchaseOrder={purchaseOrder}
         setPurchaseOrder={setPurchaseOrder}
         updatePurchaseHandler={updatePurchaseHandler}
+
+        shipperName={shipperName}
+        setShipperName={setShipperName}
+        updateShipperHandler={updateShipperHandler}
+
+        caseNumber={caseNumber}
+        setCaseNumber={setCaseNumber}
+        updateCaseHandler={updateCaseHandler}
       />
     )
   })
