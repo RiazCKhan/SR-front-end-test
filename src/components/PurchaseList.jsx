@@ -1,8 +1,11 @@
 import { useState } from "react";
 import PurchaseListItem from "./PurchaseListItem";
 import augShipment from '../data/api-data1';
+import { useEffect } from "react";
 
-export default function PurchaseList() {
+export default function PurchaseList(props) {
+
+  const { setPurchaseData } = props
 
   const [customerName, setCustomerName] = useState({})
   const [purchaseOrder, setPurchaseOrder] = useState({})
@@ -54,7 +57,10 @@ export default function PurchaseList() {
     return result
   }
 
-  aggregateCustomerShipData(customerName, purchaseOrder, shipperName, caseNumber)
+  // useEffect Updating Parent State
+  useEffect(() => {
+    setPurchaseData(aggregateCustomerShipData(customerName, purchaseOrder, shipperName, caseNumber))
+  }, [setPurchaseData, customerName, purchaseOrder, shipperName, caseNumber])
 
   const allPurchaseOrders = augShipment[0].elements
   const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
