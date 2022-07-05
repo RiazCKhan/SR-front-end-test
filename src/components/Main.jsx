@@ -15,6 +15,9 @@ export default function Main() {
   }
 
   const submitForm = () => {
+    if (Object.keys(purchaseData).length === 0) return null
+    if (Object.keys(shipmentData).length === 0) return null
+
     const formData = {
       purchaseData,
       shipmentData
@@ -26,7 +29,7 @@ export default function Main() {
   }
 
   return (
-    <>
+    <form>
       <PurchaseList
         setPurchaseData={setPurchaseData}
       />
@@ -36,6 +39,6 @@ export default function Main() {
       <div className="btn-container">
         <button className="submit-btn" onClick={() => fakeSubmit()}>Submit</button>
       </div>
-    </>
+    </form>
   )
 }
