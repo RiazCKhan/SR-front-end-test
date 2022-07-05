@@ -63,35 +63,6 @@ export default function PurchaseList(props) {
   }, [setPurchaseData, customerName, purchaseOrder, shipperName, caseNumber])
 
   const allPurchaseOrders = augShipment[0].elements
-  // const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
-  //   return (
-  //     <PurchaseListItem
-  //       key={order.id}
-  //       {...order}
-  //       index={index}
-  //       customer={order.list[0]['name']}
-  //       purchaseOrderNumber={order.list[1]['name']}
-  //       shipper={order.list[2]['name']}
-  //       cases={order.list[3]['name']}
-
-  //       customerName={customerName}
-  //       setCustomerName={setCustomerName}
-  //       updateNameHandler={updateNameHandler}
-
-  //       purchaseOrder={purchaseOrder}
-  //       setPurchaseOrder={setPurchaseOrder}
-  //       updatePurchaseHandler={updatePurchaseHandler}
-
-  //       shipperName={shipperName}
-  //       setShipperName={setShipperName}
-  //       updateShipperHandler={updateShipperHandler}
-
-  //       caseNumber={caseNumber}
-  //       setCaseNumber={setCaseNumber}
-  //       updateCaseHandler={updateCaseHandler}
-  //     />
-  //   )
-  // })
 
   return (
     <>
