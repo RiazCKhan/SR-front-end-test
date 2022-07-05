@@ -1,5 +1,4 @@
 import './PurchaseListItem.css'
-import './Error.css'
 
 export default function PurchaseListItem(props) {
 
