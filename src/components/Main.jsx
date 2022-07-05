@@ -17,10 +17,8 @@ export default function Main() {
   const submitForm = (event) => {
     event.preventDefault();
 
-    console.log(Object.keys(purchaseData).length === 0)
-
-    if (Object.keys(purchaseData).length === 0) return
-    if (Object.keys(shipmentData).length === 0) return
+    if (Object.keys(purchaseData).length === 0) return false
+    if (Object.keys(shipmentData).length === 0) return false
 
     const formData = {
       purchaseData,
