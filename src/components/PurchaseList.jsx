@@ -16,8 +16,6 @@ export default function PurchaseList(props) {
   const [shipperName, setShipperName] = useState({})
   const [caseNumber, setCaseNumber] = useState({})
 
-  // const [customerOrders, setCustomerOrders] = useState
-
   // Get All Customer Name Data
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
@@ -69,16 +67,24 @@ export default function PurchaseList(props) {
   }, [setPurchaseData, customerName, purchaseOrder, shipperName, caseNumber])
 
   const allPurchaseOrders = augShipment[0].elements
+  const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
+  function handleOnDragEnd(result) {
+    const orders = Array.from(customerOrders)
+    const [reorderedItem] = orders.splice(result.source.index, 1);
+    orders.splice(result.destination.index, 0, reorderedItem);
+
+    setCustomerOrders(orders)
+  }
 
   return (
     <>
       <h3>{augShipment[0]['sectionTitle']}</h3>
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="customerInfo">
           {(provided) => (
             <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {allPurchaseOrders.map((order, index) => {
+              {customerOrders.map((order, index) => {
                 return (
                   <Draggable key={order.id} draggableId={order.id} index={index}>
                     {(provided) => (
