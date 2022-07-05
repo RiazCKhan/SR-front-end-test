@@ -33,7 +33,7 @@ export default function Main() {
       <ShipmentList
         setShipmentData={setShipmentData}
       />
-      <div>
+      <div className="btn-container">
         <button className="submit-btn" onClick={() => fakeSubmit()}>Submit</button>
       </div>
     </>
