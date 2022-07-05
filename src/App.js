@@ -1,8 +1,7 @@
+import Main from './components/Main';
+
 import './App.css';
 import './index.css';
-
-import PurchaseList from './components/PurchaseList';
-import ShipmentList from './components/ShipmentList';
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,9 +14,8 @@ function App() {
   return (
     <section className='main'>
       <div className='form-content'>
-      <h1>Form Title</h1>
-      <PurchaseList />
-      <ShipmentList />
+        <h1>Form Title</h1>
+        <Main />
       </div>
     </section>
   );
