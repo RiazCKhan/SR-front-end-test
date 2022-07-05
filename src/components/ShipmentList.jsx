@@ -4,12 +4,12 @@ import augShipment from "../data/api-data1";
 
 export default function ShipmentList() {
 
-  const [driverName, setDriverName] = useState({})
-  const [tempNumber, setTempNumber] = useState({})
-  const [truckName, setTruckName] = useState({})
-  const [trailerSize, setTrailerSize] = useState({})
+  const [driverName, setDriverName] = useState("")
+  const [tempNumber, setTempNumber] = useState("")
+  const [truckName, setTruckName] = useState("")
+  const [trailerSize, setTrailerSize] = useState("")
 
-  console.log('d name', driverName)
+  console.log('driver name', driverName)
   console.log('temp #', tempNumber)
   console.log('truck name', truckName)
   console.log('trailer size', trailerSize)
@@ -49,34 +49,19 @@ export default function ShipmentList() {
         key={order.id}
         driver={order.list[0]['name']}
         drivers={{... order.list[0]['elements']}}
-        driverOne={order.list[0]['elements'][0]['value']}
-        driverTwo={order.list[0]['elements'][1]['value']}
+        setDriverName={setDriverName}
 
         temp={order.list[1]['name']}
-
-        truck={order.list[2]['name']}
-        truckOne={order.list[2]['elements'][0]['value']}
-        truckTwo={order.list[2]['elements'][1]['value']}
-
-        trailer={order.list[3]['name']}
-        trailerOne={order.list[3]['elements'][0]['value']}
-        trailerTwo={order.list[3]['elements'][1]['value']}
-
-        driverName={driverName}
-        setDriverName={setDriverName}
-        updateDriverHandler={updateDriverHandler}
-
         tempNumber={tempNumber}
         setTempNumber={setTempNumber}
-        updateTempHandler={updateTempHandler}
 
-        truckName={truckName}
+        truck={order.list[2]['name']}
+        trucks={{... order.list[2]['elements']}}
         setTruckName={setTruckName}
-        updateTruckHandler={updateTruckHandler}
 
-        trailerSize={trailerSize}
+        trailer={order.list[3]['name']}
+        trailers={{... order.list[3]['elements']}}
         setTrailerSize={setTrailerSize}
-        updateTrailerHandler={updateTrailerHandler}
       />
     )
   })

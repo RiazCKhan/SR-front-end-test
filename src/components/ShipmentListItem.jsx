@@ -1,21 +1,32 @@
+import { useState } from 'react'
 import './ShipmentListItem.css'
 
 export default function ShipmentListItem(props) {
 
-  const { driver, drivers, temp,
-    truck, truckOne, truckTwo,
-    trailer, trailerOne, trailerTwo,
-    driverName, setDriverName, updateDriverHandler,
-    tempNumber, setTempNumber, updateTempHandler,
-    truckName, setTruckName, updateTruckHandler, trailerSize,
-    setTrailerSize, updateTrailerHandler
+  const { driver, drivers, setDriverName, 
+    temp, tempNumber, setTempNumber,
+    truck, trucks, setTruckName,
+    trailer, trailers, setTrailerSize
   } = props
 
   const allDrivers = Object.values(drivers)
-
   const driverOptions = allDrivers.map((driver) => {
     return (
-      <option key={driver.id}> {driver.value} </option>
+      <option key={driver.id} value={driver.value}> {driver.value} </option>
+    )
+  })
+
+  const allTrucks = Object.values(trucks)
+  const truckOptions = allTrucks.map((truck) => {
+    return (
+      <option key={truck.id} value={truck.value}> {truck.value} </option>
+    )
+  })
+
+  const allTrailers = Object.values(trailers)
+  const trailerOptions = allTrailers.map((size) => {
+    return (
+      <option key={size.id} value={size.value}> {size.value} </option>
     )
   })
 
@@ -24,34 +35,41 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{driver}</div>
-          <select className='shipment-content'>
-            <option disabled={true} value=""> Select </option>
+          <select className='shipment-content'
+            onChange={(event) => setDriverName(event.target.value)} >
+            <option value=""> Select </option>
             {driverOptions}
           </select>
         </article>
 
         <article>
           <div>{temp}</div>
-          <input className='shipment-content-temp' placeholder="Number" />
+          <input
+            type="text"
+            name="temp"
+            value={tempNumber || ""}
+            className='shipment-content-temp'
+            placeholder="Number"
+            onChange={(event) => setTempNumber(event.target.value)} />
         </article>
       </section>
 
       <section className='shipment-card'>
         <article>
           <div>{truck}</div>
-          <select className='shipment-content'>
-            <option> Select </option>
-            <option> {truckOne} </option>
-            <option> {truckTwo} </option>
+          <select className='shipment-content'
+            onChange={(event) => setTruckName(event.target.value)} >
+            <option value=""> Select </option>
+            {truckOptions}
           </select>
         </article>
 
         <article>
           <div>{trailer}</div>
-          <select className='shipment-content'>
-            <option> Select </option>
-            <option> {trailerOne} </option>
-            <option> {trailerTwo} </option>
+          <select className='shipment-content'
+            onChange={(event) => setTrailerSize(event.target.value)} >
+            <option value=""> Select </option>
+            {trailerOptions}
           </select>
         </article>
       </section>
