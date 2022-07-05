@@ -14,33 +14,14 @@ export default function ShipmentList() {
   console.log('truck name', truckName)
   console.log('trailer size', trailerSize)
 
-    // Get All Driver Name Data
-    const updateDriverHandler = (index, driverName, data) => {
-      let updateName = Object.assign({}, driverName)
-      updateName[index] = data
-      return updateName
-    }
-  
-    // Get All Temp # Data
-    const updateTempHandler = (index, tempNumber, data) => {
-      let updateTemp = Object.assign({}, tempNumber)
-      updateTemp[index] = data
-      return updateTemp
-    }
-  
-    // Get All Truck Name Data
-    const updateTruckHandler = (index, truckName, data) => {
-      let updateTruck = Object.assign({}, truckName)
-      updateTruck[index] = data
-      return updateTruck
-    }
-  
-    // Get All Trailer Size Data 
-    const updateTrailerHandler = (index, trailerSize, data) => {
-      let updateTrailer = Object.assign({}, trailerSize)
-      updateTrailer[index] = data
-      return updateTrailer
-    }
+  const aggregateShipmentData = {
+    driverName,
+    tempNumber,
+    truckName,
+    trailerSize
+  }
+
+  console.log(aggregateShipmentData)
 
   const allShipmentOrders = augShipment[1].elements
   const eachShipmentOrder = allShipmentOrders.map((order) => {
@@ -48,7 +29,7 @@ export default function ShipmentList() {
       <ShipmentListItem
         key={order.id}
         driver={order.list[0]['name']}
-        drivers={{... order.list[0]['elements']}}
+        drivers={{ ...order.list[0]['elements'] }}
         setDriverName={setDriverName}
 
         temp={order.list[1]['name']}
@@ -56,11 +37,11 @@ export default function ShipmentList() {
         setTempNumber={setTempNumber}
 
         truck={order.list[2]['name']}
-        trucks={{... order.list[2]['elements']}}
+        trucks={{ ...order.list[2]['elements'] }}
         setTruckName={setTruckName}
 
         trailer={order.list[3]['name']}
-        trailers={{... order.list[3]['elements']}}
+        trailers={{ ...order.list[3]['elements'] }}
         setTrailerSize={setTrailerSize}
       />
     )
