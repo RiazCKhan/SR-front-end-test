@@ -27,7 +27,7 @@ export default function Main() {
       shipmentData
     }
 
-    axios.post('/pathway', { formData })
+    axios.post('api/form', { formData })
       .then(res => console.log('Sending Data: ', formData))
       .catch(error => console.log('Oops... Something went wrong', error))
   }
@@ -41,7 +41,7 @@ export default function Main() {
         setShipmentData={setShipmentData}
       />
       <div className="btn-container">
-        <button className="submit-btn" onClick={() => fakeSubmit()}>Submit</button>
+        <button className="submit-btn" onClick={() => fakeSubmit}>Submit</button>
       </div>
     </form>
   )
