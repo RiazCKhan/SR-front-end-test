@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import augShipment from '../data/api-data1';
 
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
+
 import "./PurchaseList.css";
 
 export default function PurchaseList(props) {
@@ -67,63 +71,68 @@ export default function PurchaseList(props) {
   return (
     <>
       <h3>{augShipment[0]['sectionTitle']}</h3>
-      <ul>
-        {allPurchaseOrders.map((order, index) => {
-          return (
-            <li key={order.id} className='purchase-card'>
-                <article>
-                  <div>{order.list[0]['name']}</div>
-                  <input
-                    type="text"
-                    name="customer-name"
-                    value={customerName[index] || ""}
-                    placeholder="String"
-                    required
-                    minLength="3"
-                    onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))}
-                  />
-                </article>
+      <DragDropContext>
+        <Droppable>
 
-                <article>
-                  <div>{order.list[1]['name']}</div>
-                  <input
-                    typeof='text'
-                    name="purchase-order-number"
-                    value={purchaseOrder[index] || ""}
-                    placeholder="String"
-                    required
-                    onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
-                  />
-                </article>
+          <ul>
+            {allPurchaseOrders.map((order, index) => {
+              return (
+                <li key={order.id} className='purchase-card'>
+                  <article>
+                    <div>{order.list[0]['name']}</div>
+                    <input
+                      type="text"
+                      name="customer-name"
+                      value={customerName[index] || ""}
+                      placeholder="String"
+                      required
+                      minLength="3"
+                      onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))}
+                    />
+                  </article>
 
-                <article>
-                  <div>{order.list[2]['name']}</div>
-                  <input
-                    type="text"
-                    name="shipper"
-                    value={shipperName[index] || ""}
-                    placeholder="String"
-                    required
-                    minLength="3"
-                    onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
-                  />
-                </article>
+                  <article>
+                    <div>{order.list[1]['name']}</div>
+                    <input
+                      typeof='text'
+                      name="purchase-order-number"
+                      value={purchaseOrder[index] || ""}
+                      placeholder="String"
+                      required
+                      onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
+                    />
+                  </article>
 
-                <article>
-                  <div>{order.list[3]['name']}</div>
-                  <input
-                    type="text"
-                    name="cases"
-                    value={caseNumber[index] || ""}
-                    placeholder="Number"
-                    required
-                    onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
-                  />
-                </article>
-            </li>
-          )
-        })}
-      </ul>
+                  <article>
+                    <div>{order.list[2]['name']}</div>
+                    <input
+                      type="text"
+                      name="shipper"
+                      value={shipperName[index] || ""}
+                      placeholder="String"
+                      required
+                      minLength="3"
+                      onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
+                    />
+                  </article>
+
+                  <article>
+                    <div>{order.list[3]['name']}</div>
+                    <input
+                      type="text"
+                      name="cases"
+                      value={caseNumber[index] || ""}
+                      placeholder="Number"
+                      required
+                      onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
+                    />
+                  </article>
+                </li>
+              )
+            })}
+          </ul>
+        </Droppable>
+      </DragDropContext>
     </>
   )
 }
