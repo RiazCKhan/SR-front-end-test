@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import PurchaseListItem from "./PurchaseListItem";
 import augShipment from '../data/api-data1';
+
+import "./PurchaseList.css";
 
 export default function PurchaseList(props) {
 
@@ -62,40 +63,96 @@ export default function PurchaseList(props) {
   }, [setPurchaseData, customerName, purchaseOrder, shipperName, caseNumber])
 
   const allPurchaseOrders = augShipment[0].elements
-  const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
-    return (
-      <PurchaseListItem
-        key={order.id}
-        {...order}
-        index={index}
-        customer={order.list[0]['name']}
-        purchaseOrderNumber={order.list[1]['name']}
-        shipper={order.list[2]['name']}
-        cases={order.list[3]['name']}
+  // const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
+  //   return (
+  //     <PurchaseListItem
+  //       key={order.id}
+  //       {...order}
+  //       index={index}
+  //       customer={order.list[0]['name']}
+  //       purchaseOrderNumber={order.list[1]['name']}
+  //       shipper={order.list[2]['name']}
+  //       cases={order.list[3]['name']}
 
-        customerName={customerName}
-        setCustomerName={setCustomerName}
-        updateNameHandler={updateNameHandler}
+  //       customerName={customerName}
+  //       setCustomerName={setCustomerName}
+  //       updateNameHandler={updateNameHandler}
 
-        purchaseOrder={purchaseOrder}
-        setPurchaseOrder={setPurchaseOrder}
-        updatePurchaseHandler={updatePurchaseHandler}
+  //       purchaseOrder={purchaseOrder}
+  //       setPurchaseOrder={setPurchaseOrder}
+  //       updatePurchaseHandler={updatePurchaseHandler}
 
-        shipperName={shipperName}
-        setShipperName={setShipperName}
-        updateShipperHandler={updateShipperHandler}
+  //       shipperName={shipperName}
+  //       setShipperName={setShipperName}
+  //       updateShipperHandler={updateShipperHandler}
 
-        caseNumber={caseNumber}
-        setCaseNumber={setCaseNumber}
-        updateCaseHandler={updateCaseHandler}
-      />
-    )
-  })
+  //       caseNumber={caseNumber}
+  //       setCaseNumber={setCaseNumber}
+  //       updateCaseHandler={updateCaseHandler}
+  //     />
+  //   )
+  // })
 
   return (
     <>
       <h3>{augShipment[0]['sectionTitle']}</h3>
-      {eachPurchaseOrder}
+      <ul>
+        {allPurchaseOrders.map((order, index) => {
+          return (
+            <li key={order.id} className='purchase-card'>
+                <article>
+                  <div>{order.list[0]['name']}</div>
+                  <input
+                    type="text"
+                    name="customer-name"
+                    value={customerName[index] || ""}
+                    placeholder="String"
+                    required
+                    minLength="3"
+                    onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))}
+                  />
+                </article>
+
+                <article>
+                  <div>{order.list[1]['name']}</div>
+                  <input
+                    typeof='text'
+                    name="purchase-order-number"
+                    value={purchaseOrder[index] || ""}
+                    placeholder="String"
+                    required
+                    onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
+                  />
+                </article>
+
+                <article>
+                  <div>{order.list[2]['name']}</div>
+                  <input
+                    type="text"
+                    name="shipper"
+                    value={shipperName[index] || ""}
+                    placeholder="String"
+                    required
+                    minLength="3"
+                    onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
+                  />
+                </article>
+
+                <article>
+                  <div>{order.list[3]['name']}</div>
+                  <input
+                    type="text"
+                    name="cases"
+                    value={caseNumber[index] || ""}
+                    placeholder="Number"
+                    required
+                    onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
+                  />
+                </article>
+            </li>
+          )
+        })}
+      </ul>
     </>
   )
 }
