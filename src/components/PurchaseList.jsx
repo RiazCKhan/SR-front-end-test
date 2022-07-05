@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import augShipment from '../data/api-data1';
 
+import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData  } from "../helpers/functions";
+
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
@@ -15,51 +17,6 @@ export default function PurchaseList(props) {
   const [purchaseOrder, setPurchaseOrder] = useState({})
   const [shipperName, setShipperName] = useState({})
   const [caseNumber, setCaseNumber] = useState({})
-
-  // Get All Customer Name Data
-  const updateNameHandler = (index, customerName, data) => {
-    let updateName = Object.assign({}, customerName)
-    updateName[index] = data
-    return updateName
-  }
-
-  // Get All Customer Purchase No. Data
-  const updatePurchaseHandler = (index, purchaseOrder, data) => {
-    let updatePurchase = Object.assign({}, purchaseOrder)
-    updatePurchase[index] = data
-    return updatePurchase
-  }
-
-  // Get All Customer Shipping Data
-  const updateShipperHandler = (index, shipperName, data) => {
-    let updateShipper = Object.assign({}, shipperName)
-    updateShipper[index] = data
-    return updateShipper
-  }
-
-  // Get All Customer Case Data 
-  const updateCaseHandler = (index, caseNumber, data) => {
-    let updateCase = Object.assign({}, caseNumber)
-    updateCase[index] = data
-    return updateCase
-  }
-
-  // Get All Customer Data and Create one Obj for Axios Call
-  const aggregateCustomerShipData = (names, orderNums, shippers, cases) => {
-    const result = {}
-    let keys = Object.keys(names)
-
-    for (const key of keys) {
-      let obj = {
-        name: names[key],
-        orderNum: orderNums[key],
-        shipper: shippers[key],
-        cases: cases[key]
-      }
-      result[key] = obj
-    }
-    return result
-  }
 
   // useEffect Updating Parent State
   useEffect(() => {
