@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PurchaseListItem from "./PurchaseListItem";
 import augShipment from '../data/api-data1';
-import { useEffect } from "react";
 
 export default function PurchaseList(props) {
 
