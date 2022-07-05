@@ -88,7 +88,7 @@ export default function PurchaseList(props) {
                 return (
                   <Draggable key={order.id} draggableId={order.id} index={index}>
                     {(provided) => (
-                      <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className='purchase-card'>
+                      <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className='purchase-card'> <FontAwesomeIcon icon={faGripVertical} size={"2x"} />
                         <article>
                           <div>{order.list[0]['name']}</div>
                           <input
