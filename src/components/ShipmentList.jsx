@@ -9,6 +9,11 @@ export default function ShipmentList() {
   const [truckName, setTruckName] = useState({})
   const [trailerSize, setTrailerSize] = useState({})
 
+  console.log('d name', driverName)
+  console.log('temp #', tempNumber)
+  console.log('truck name', truckName)
+  console.log('trailer size', trailerSize)
+
     // Get All Driver Name Data
     const updateDriverHandler = (index, driverName, data) => {
       let updateName = Object.assign({}, driverName)
@@ -43,6 +48,7 @@ export default function ShipmentList() {
       <ShipmentListItem
         key={order.id}
         driver={order.list[0]['name']}
+        drivers={{... order.list[0]['elements']}}
         driverOne={order.list[0]['elements'][0]['value']}
         driverTwo={order.list[0]['elements'][1]['value']}
 

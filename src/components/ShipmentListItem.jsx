@@ -2,9 +2,22 @@ import './ShipmentListItem.css'
 
 export default function ShipmentListItem(props) {
 
-  const { driver, driverOne, driverTwo, temp,
+  const { driver, drivers, temp,
     truck, truckOne, truckTwo,
-    trailer, trailerOne, trailerTwo } = props
+    trailer, trailerOne, trailerTwo,
+    driverName, setDriverName, updateDriverHandler,
+    tempNumber, setTempNumber, updateTempHandler,
+    truckName, setTruckName, updateTruckHandler, trailerSize,
+    setTrailerSize, updateTrailerHandler
+  } = props
+
+  const allDrivers = Object.values(drivers)
+
+  const driverOptions = allDrivers.map((driver) => {
+    return (
+      <option key={driver.id}> {driver.value} </option>
+    )
+  })
 
   return (
     <>
@@ -12,9 +25,8 @@ export default function ShipmentListItem(props) {
         <article>
           <div>{driver}</div>
           <select className='shipment-content'>
-            <option> Select </option>
-            <option> {driverOne} </option>
-            <option> {driverTwo} </option>
+            <option disabled={true} value=""> Select </option>
+            {driverOptions}
           </select>
         </article>
 
@@ -30,7 +42,7 @@ export default function ShipmentListItem(props) {
           <select className='shipment-content'>
             <option> Select </option>
             <option> {truckOne} </option>
-          <option> {truckTwo} </option>
+            <option> {truckTwo} </option>
           </select>
         </article>
 
