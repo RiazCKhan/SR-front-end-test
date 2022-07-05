@@ -4,13 +4,14 @@ import augShipment from "../data/api-data1";
 
 export default function ShipmentList(props) {
 
-const { setShipmentData } = props
+  const { setShipmentData } = props
 
   const [driverName, setDriverName] = useState("")
   const [tempNumber, setTempNumber] = useState("")
   const [truckName, setTruckName] = useState("")
   const [trailerSize, setTrailerSize] = useState("")
 
+  // useEffect Updating Parent State
   useEffect(() => {
     const aggregateShipmentData = {
       driverName,
