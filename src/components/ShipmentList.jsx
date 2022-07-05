@@ -9,6 +9,34 @@ export default function ShipmentList() {
   const [truckName, setTruckName] = useState({})
   const [trailerSize, setTrailerSize] = useState({})
 
+    // Get All Driver Name Data
+    const updateDriverHandler = (index, driverName, data) => {
+      let updateName = Object.assign({}, driverName)
+      updateName[index] = data
+      return updateName
+    }
+  
+    // Get All Temp # Data
+    const updateTempHandler = (index, tempNumber, data) => {
+      let updateTemp = Object.assign({}, tempNumber)
+      updateTemp[index] = data
+      return updateTemp
+    }
+  
+    // Get All Truck Name Data
+    const updateTruckHandler = (index, truckName, data) => {
+      let updateTruck = Object.assign({}, truckName)
+      updateTruck[index] = data
+      return updateTruck
+    }
+  
+    // Get All Trailer Size Data 
+    const updateTrailerHandler = (index, trailerSize, data) => {
+      let updateTrailer = Object.assign({}, trailerSize)
+      updateTrailer[index] = data
+      return updateTrailer
+    }
+
   const allShipmentOrders = augShipment[1].elements
   const eachShipmentOrder = allShipmentOrders.map((order) => {
     return (
@@ -30,15 +58,19 @@ export default function ShipmentList() {
 
         driverName={driverName}
         setDriverName={setDriverName}
+        updateDriverHandler={updateDriverHandler}
 
         tempNumber={tempNumber}
         setTempNumber={setTempNumber}
+        updateTempHandler={updateTempHandler}
 
         truckName={truckName}
         setTruckName={setTruckName}
+        updateTruckHandler={updateTruckHandler}
 
         trailerSize={trailerSize}
         setTrailerSize={setTrailerSize}
+        updateTrailerHandler={updateTrailerHandler}
       />
     )
   })
