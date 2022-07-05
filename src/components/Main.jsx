@@ -10,10 +10,6 @@ export default function Main() {
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
 
-  const fakeSubmit = (event) => {
-    event.preventDefault();
-  }
-
   const submitForm = (event) => {
     event.preventDefault();
 
