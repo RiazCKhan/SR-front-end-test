@@ -8,7 +8,6 @@ export default function PurchaseListItem(props) {
     purchaseOrder, setPurchaseOrder, updatePurchaseHandler,
     shipperName, setShipperName, updateShipperHandler,
     caseNumber, setCaseNumber, updateCaseHandler
-
   } = props
 
   return (
