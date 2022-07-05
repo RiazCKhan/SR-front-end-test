@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ShipmentListItem from "./ShipmentListItem";
 import augShipment from "../data/api-data1";
 
-export default function ShipmentList() {
+export default function ShipmentList(props) {
+
+const { setShipmentData } = props
 
   const [driverName, setDriverName] = useState("")
   const [tempNumber, setTempNumber] = useState("")
@@ -15,6 +17,10 @@ export default function ShipmentList() {
     truckName,
     trailerSize
   }
+
+  useEffect(() => {
+    setShipmentData(aggregateShipmentData)
+  }, [setShipmentData, driverName, tempNumber, truckName, trailerSize])
 
   const allShipmentOrders = augShipment[1].elements
   const eachShipmentOrder = allShipmentOrders.map((order) => {
