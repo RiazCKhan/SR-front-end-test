@@ -17,8 +17,10 @@ export default function Main() {
   const submitForm = (event) => {
     event.preventDefault();
 
-    if (Object.keys(purchaseData).length === 0) return null
-    if (Object.keys(shipmentData).length === 0) return null
+    console.log(Object.keys(purchaseData).length === 0)
+
+    if (Object.keys(purchaseData).length === 0) return
+    if (Object.keys(shipmentData).length === 0) return
 
     const formData = {
       purchaseData,
@@ -39,7 +41,7 @@ export default function Main() {
         setShipmentData={setShipmentData}
       />
       <div className="btn-container">
-        <button className="submit-btn" onClick={() => submitForm}>Submit</button>
+        <button className="submit-btn" onClick={(event) => {submitForm(event)}}>Submit</button>
       </div>
     </form>
   )
