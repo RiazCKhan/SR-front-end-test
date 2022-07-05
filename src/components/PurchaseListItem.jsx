@@ -1,4 +1,5 @@
 import './PurchaseListItem.css'
+import './Error.css'
 
 export default function PurchaseListItem(props) {
 
@@ -16,8 +17,9 @@ export default function PurchaseListItem(props) {
         <input
           type="text"
           name="customer-name"
-          placeholder="String"
           value={customerName[index] || ""}
+          placeholder="String"
+          required
           onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))}
         />
       </article>
@@ -29,6 +31,7 @@ export default function PurchaseListItem(props) {
           name="purchase-order-number"
           value={purchaseOrder[index] || ""}
           placeholder="String"
+          required
           onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
         />
       </article>
@@ -40,6 +43,7 @@ export default function PurchaseListItem(props) {
           name="shipper"
           value={shipperName[index] || ""}
           placeholder="String"
+          required
           onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
         />
       </article>
@@ -51,6 +55,7 @@ export default function PurchaseListItem(props) {
           name="cases"
           value={caseNumber[index] || ""}
           placeholder="Number"
+          required
           onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
         />
       </article>

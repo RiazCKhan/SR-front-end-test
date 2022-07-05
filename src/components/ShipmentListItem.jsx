@@ -1,4 +1,5 @@
 import './ShipmentListItem.css'
+import './Error.css';
 
 export default function ShipmentListItem(props) {
 
@@ -34,7 +35,7 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{driver}</div>
-          <select className='shipment-content'
+          <select className='shipment-content' required
             onChange={(event) => setDriverName(event.target.value)} >
             <option value=""> Select </option>
             {driverOptions}
@@ -46,9 +47,10 @@ export default function ShipmentListItem(props) {
           <input
             type="text"
             name="temp"
-            value={tempNumber || ""}
             className='shipment-content-temp'
             placeholder="Number"
+            value={tempNumber || ""}
+            required
             onChange={(event) => setTempNumber(event.target.value)} />
         </article>
       </section>
@@ -56,7 +58,7 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{truck}</div>
-          <select className='shipment-content'
+          <select className='shipment-content' required
             onChange={(event) => setTruckName(event.target.value)} >
             <option value=""> Select </option>
             {truckOptions}
@@ -65,7 +67,7 @@ export default function ShipmentListItem(props) {
 
         <article>
           <div>{trailer}</div>
-          <select className='shipment-content'
+          <select className='shipment-content' required
             onChange={(event) => setTrailerSize(event.target.value)} >
             <option value=""> Select </option>
             {trailerOptions}
