@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './ShipmentListItem.css'
 
 export default function ShipmentListItem(props) {
