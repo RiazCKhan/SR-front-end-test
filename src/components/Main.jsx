@@ -7,12 +7,16 @@ export default function Main() {
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
 
+  console.log(shipmentData)
+
   return (
     <>
       <PurchaseList
         setPurchaseData={setPurchaseData}
       />
-      <ShipmentList />
+      <ShipmentList 
+      setShipmentData={setShipmentData}
+      />
     </>
   )
 }
