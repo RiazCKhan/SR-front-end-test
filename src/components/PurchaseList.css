@@ -1,0 +1,12 @@
+.purchase-card {
+  display: flex;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  padding: 1.3rem;
+}
+
+ul {
+  padding: 0
+}
