@@ -10,11 +10,15 @@ export default function Main() {
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
 
-  const fakeSubmit = () => {
+  const fakeSubmit = (event) => {
+    event.preventDefault();
+
     console.log('Yah you did it!')
   }
 
-  const submitForm = () => {
+  const submitForm = (event) => {
+    event.preventDefault();
+
     if (Object.keys(purchaseData).length === 0) return null
     if (Object.keys(shipmentData).length === 0) return null
 
