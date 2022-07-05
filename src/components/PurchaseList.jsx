@@ -9,30 +9,35 @@ export default function PurchaseList() {
   const [shipperName, setShipperName] = useState({})
   const [caseNumber, setCaseNumber] = useState({})
 
+  // Get All Customer Name Data
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
     updateName[index] = data
     return updateName
   }
 
+  // Get All Customer Purchase No. Data
   const updatePurchaseHandler = (index, purchaseOrder, data) => {
     let updatePurchase = Object.assign({}, purchaseOrder)
     updatePurchase[index] = data
     return updatePurchase
   }
 
+  // Get All Customer Shipping Data
   const updateShipperHandler = (index, shipperName, data) => {
     let updateShipper = Object.assign({}, shipperName)
     updateShipper[index] = data
     return updateShipper
   }
 
+  // Get All Customer Case Data 
   const updateCaseHandler = (index, caseNumber, data) => {
     let updateCase = Object.assign({}, caseNumber)
     updateCase[index] = data
     return updateCase
   }
 
+  // Get All Customer Data and Create one Obj for Axios Call
   const aggregateData = (names, orderNums, shippers, cases) => {
     const result = {}
     let keys = Object.keys(names)
