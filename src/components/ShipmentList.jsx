@@ -1,10 +1,15 @@
+import { useState } from "react";
 import ShipmentListItem from "./ShipmentListItem";
 import augShipment from "../data/api-data1";
 
 export default function ShipmentList() {
 
-  const allShipmentOrders = augShipment[1].elements
+  const [driverName, setDriverName] = useState({})
+  const [tempNumber, setTempNumber] = useState({})
+  const [truckName, setTruckName] = useState({})
+  const [trailerSize, setTrailerSize] = useState({})
 
+  const allShipmentOrders = augShipment[1].elements
   const eachShipmentOrder = allShipmentOrders.map((order) => {
     return (
       <ShipmentListItem
@@ -22,6 +27,18 @@ export default function ShipmentList() {
         trailer={order.list[3]['name']}
         trailerOne={order.list[3]['elements'][0]['value']}
         trailerTwo={order.list[3]['elements'][1]['value']}
+
+        driverName={driverName}
+        setDriverName={setDriverName}
+
+        tempNumber={tempNumber}
+        setTempNumber={setTempNumber}
+
+        truckName={truckName}
+        setTruckName={setTruckName}
+
+        trailerSize={trailerSize}
+        setTrailerSize={setTrailerSize}
       />
     )
   })
