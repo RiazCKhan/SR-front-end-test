@@ -12,8 +12,6 @@ export default function Main() {
 
   const fakeSubmit = (event) => {
     event.preventDefault();
-
-    console.log('Yah you did it!')
   }
 
   const submitForm = (event) => {
@@ -41,7 +39,7 @@ export default function Main() {
         setShipmentData={setShipmentData}
       />
       <div className="btn-container">
-        <button className="submit-btn" onClick={() => fakeSubmit}>Submit</button>
+        <button className="submit-btn" onClick={() => submitForm}>Submit</button>
       </div>
     </form>
   )
