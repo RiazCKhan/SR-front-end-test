@@ -35,7 +35,7 @@ export default function Main() {
         setShipmentData={setShipmentData}
       />
       <div className="btn-container">
-        <button className="submit-btn" onClick={(event) => {submitForm(event)}}>Submit</button>
+        <button className="submit-btn" onClick={(event) => { submitForm(event) }}>Submit</button>
       </div>
     </form>
   )
