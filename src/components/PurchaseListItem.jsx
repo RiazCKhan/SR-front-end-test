@@ -1,4 +1,3 @@
-import { jediOrder } from 'fontawesome'
 import './PurchaseListItem.css'
 
 export default function PurchaseListItem(props) {
