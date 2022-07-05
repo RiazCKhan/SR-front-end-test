@@ -38,7 +38,7 @@ export default function PurchaseList() {
   }
 
   // Get All Customer Data and Create one Obj for Axios Call
-  const aggregateData = (names, orderNums, shippers, cases) => {
+  const aggregateCustomerShipData = (names, orderNums, shippers, cases) => {
     const result = {}
     let keys = Object.keys(names)
 
@@ -54,7 +54,7 @@ export default function PurchaseList() {
     return result
   }
 
-  aggregateData(customerName, purchaseOrder, shipperName, caseNumber)
+  aggregateCustomerShipData(customerName, purchaseOrder, shipperName, caseNumber)
 
   const allPurchaseOrders = augShipment[0].elements
   const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
