@@ -9,11 +9,6 @@ export default function PurchaseList() {
   const [shipperName, setShipperName] = useState({})
   const [caseNumber, setCaseNumber] = useState({})
 
-  console.log(customerName)
-  console.log(purchaseOrder)
-  console.log(shipperName)
-  console.log(caseNumber)
-
   const updateNameHandler = (index, customerName, data) => {
     let updateName = Object.assign({}, customerName)
     updateName[index] = data
@@ -37,6 +32,24 @@ export default function PurchaseList() {
     updateCase[index] = data
     return updateCase
   }
+
+  const aggregateData = (names, orderNums, shippers, cases) => {
+    const result = {}
+    let keys = Object.keys(names)
+
+    for (const key of keys) {
+      let obj = {
+        name: names[key],
+        orderNum: orderNums[key],
+        shipper: shippers[key],
+        cases: cases[key]
+      }
+      result[key] = obj
+    }
+    return result
+  }
+
+  aggregateData(customerName, purchaseOrder, shipperName, caseNumber)
 
   const allPurchaseOrders = augShipment[0].elements
   const eachPurchaseOrder = allPurchaseOrders.map((order, index) => {
