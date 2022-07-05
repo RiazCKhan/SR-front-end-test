@@ -11,14 +11,14 @@ const { setShipmentData } = props
   const [truckName, setTruckName] = useState("")
   const [trailerSize, setTrailerSize] = useState("")
 
-  const aggregateShipmentData = {
-    driverName,
-    tempNumber,
-    truckName,
-    trailerSize
-  }
-
   useEffect(() => {
+    const aggregateShipmentData = {
+      driverName,
+      tempNumber,
+      truckName,
+      trailerSize
+    }
+
     setShipmentData(aggregateShipmentData)
   }, [setShipmentData, driverName, tempNumber, truckName, trailerSize])
 
