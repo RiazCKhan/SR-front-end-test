@@ -9,19 +9,12 @@ export default function ShipmentList() {
   const [truckName, setTruckName] = useState("")
   const [trailerSize, setTrailerSize] = useState("")
 
-  console.log('driver name', driverName)
-  console.log('temp #', tempNumber)
-  console.log('truck name', truckName)
-  console.log('trailer size', trailerSize)
-
   const aggregateShipmentData = {
     driverName,
     tempNumber,
     truckName,
     trailerSize
   }
-
-  console.log(aggregateShipmentData)
 
   const allShipmentOrders = augShipment[1].elements
   const eachShipmentOrder = allShipmentOrders.map((order) => {
