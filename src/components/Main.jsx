@@ -11,7 +11,6 @@ export default function Main() {
   const [shipmentData, setShipmentData] = useState([])
 
   const submitForm = (event) => {
-    event.preventDefault();
 
     if (Object.keys(purchaseData).length === 0) return false
     if (Object.keys(shipmentData).length === 0) return false
