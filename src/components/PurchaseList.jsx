@@ -54,7 +54,6 @@ export default function PurchaseList(props) {
                             value={customerName[index] || ""}
                             placeholder="String"
                             required
-                            minLength="3"
                             onChange={(event) => setCustomerName(updateNameHandler(index, customerName, event.target.value))}
                           />
                         </article>
@@ -79,7 +78,6 @@ export default function PurchaseList(props) {
                             value={shipperName[index] || ""}
                             placeholder="String"
                             required
-                            minLength="3"
                             onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
                           />
                         </article>
