@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import augShipment from '../data/api-data1';
 
-import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData  } from "../helpers/functions";
+import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData } from "../helpers/functions";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,7 +26,7 @@ export default function PurchaseList(props) {
   const allPurchaseOrders = augShipment[0].elements
   const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
-  function handleOnDragEnd(result) {
+  const handleOnDragEnd = (result) => {
     const orders = Array.from(customerOrders)
     const [reorderedItem] = orders.splice(result.source.index, 1);
     orders.splice(result.destination.index, 0, reorderedItem);
