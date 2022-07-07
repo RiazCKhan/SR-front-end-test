@@ -1,12 +1,10 @@
 import { useState } from "react"
+import axios from "axios"
 import PurchaseList from "./PurchaseList"
 import ShipmentList from "./ShipmentList"
-import axios from "axios"
 import augShipment from '../data/api-data1';
 
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
+import { DragDropContext } from "react-beautiful-dnd";
 
 import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData } from "../helpers/functions";
 
