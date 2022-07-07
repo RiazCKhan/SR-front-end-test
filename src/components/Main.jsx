@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, createRef, forwardRef } from "react"
+import { useState} from "react"
 import PurchaseList from "./PurchaseList"
 import ShipmentList from "./ShipmentList"
 import axios from "axios"
@@ -7,7 +7,6 @@ import augShipment from '../data/api-data1';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
-
 
 import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData } from "../helpers/functions";
 
@@ -21,10 +20,7 @@ export default function Main() {
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
 
-
   const validatePurchase = () => {
-    // console.log("testing ref",validator.current.state)
-    // console.log(invalid.current = "error")
     const allPurchaseOrders = augShipment[0].elements
     console.log("i am validating your purchase")
     console.log(Object.keys(customerName))
@@ -42,18 +38,10 @@ export default function Main() {
 
     console.log("but is it valid? ", isValid)
     console.log("the invalids: ", invalids)
-    // console.log('name', purchaseData['0']['name'])
-
   }
 
   const submitForm = (event) => {
     validatePurchase()
-
-    // if (validatePurchase() === false) return
-    // if (validateShipment() === false) return 
-
-    // if (Object.keys(purchaseData).length === 0) return false
-    // if (Object.keys(shipmentData).length === 0) return false
 
     // const formData = {
     //   purchaseData,
