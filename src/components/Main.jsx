@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useState } from "react"
 import PurchaseList from "./PurchaseList"
 import ShipmentList from "./ShipmentList"
 import axios from "axios"
@@ -73,28 +73,16 @@ export default function Main() {
   }
 
   const purchaseItems = customerOrders.map((order, index) => (
-    <Droppable key={order.id} droppableId={order.id} index={index}>
-      {(provided) => (
-        <ul {...provided.droppableProps} ref={provided.innerRef}>
-          <Draggable key={order.id} draggableId={order.id} index={index}>
-            {(provided) => (
-              <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className='purchase-card'> <FontAwesomeIcon icon={faGripVertical} size={"2x"} />
-                <PurchaseList
-                  setPurchaseData={setPurchaseData}
-                  customerName={customerName}
-                  handleChange={handleChange}
-                  index={index}
-                  errorClass={"error"}
-                  customerOrders={customerOrders}
-                  setCustomerOrders={setCustomerOrders}
-                />
-              </li>
-            )}
-          </Draggable>
-          {provided.placeholder}
-        </ul>
-      )}
-    </Droppable>
+    <PurchaseList
+      key={order.id}
+      setPurchaseData={setPurchaseData}
+      customerName={customerName}
+      handleChange={handleChange}
+      index={index}
+      errorClass={"error"}
+      customerOrders={customerOrders}
+      setCustomerOrders={setCustomerOrders}
+    />
   ))
 
   return (
