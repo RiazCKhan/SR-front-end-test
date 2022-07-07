@@ -35,13 +35,6 @@ export default function Main() {
           ...invalidInputs
         }))
       }
-      // else if (customerName[key] && customerName[key].length >= 1) {
-      //   invalidInputs[key] = "valid"
-      //   setErrorClass(errorClass => ({
-      //     ...errorClass,
-      //     ...invalidInputs
-      //   }))
-      // }
     }
   }
 
