@@ -73,7 +73,7 @@ export default function Main() {
   }
 
   const purchaseItems = customerOrders.map((order, index) => (
-    <Droppable droppableId="customerInfo">
+    <Droppable key={order.id} droppableId={order.id} index={index}>
       {(provided) => (
         <ul {...provided.droppableProps} ref={provided.innerRef}>
           <Draggable key={order.id} draggableId={order.id} index={index}>
@@ -96,7 +96,6 @@ export default function Main() {
       )}
     </Droppable>
   ))
-
 
   return (
     <>
