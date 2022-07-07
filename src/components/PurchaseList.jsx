@@ -17,7 +17,6 @@ export default function PurchaseList(props) {
   const [shipperName, setShipperName] = useState({})
   const [caseNumber, setCaseNumber] = useState({})
 
-
   // useEffect Updating Parent State
   useEffect(() => {
     setPurchaseData(aggregateCustomerShipData(customerName, purchaseOrder, shipperName, caseNumber))
@@ -36,7 +35,7 @@ export default function PurchaseList(props) {
                 <article>
                   <div>{order.list[0]['name']}</div>
                   <input
-                    className={errorClass}
+                    className={errorClass[index]}
                     type="text"
                     name="customer-name"
                     value={customerName[index] || ""}
