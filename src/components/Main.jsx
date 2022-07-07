@@ -64,7 +64,7 @@ export default function Main() {
     customerOnChange(event, id);
   };
 
-  function handleOnDragEnd(result) {
+  const handleOnDragEnd = (result) => {
     console.log(result)
     const orders = Array.from(customerOrders)
     const [reorderedItem] = orders.splice(result.source.index, 1);
