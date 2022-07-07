@@ -11,28 +11,39 @@ import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateC
 import './Main.css'
 
 export default function Main() {
+
+  const [errorClass, setErrorClass] = useState({})
+
   const [customerName, setCustomerName] = useState({})
-  const allPurchaseOrders = augShipment[0].elements
-  const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
 
+  const allPurchaseOrders = augShipment[0].elements
+  const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
+
   const validatePurchase = () => {
     const allPurchaseOrders = augShipment[0].elements
 
-    let isValid = true
-    const invalids = []
+    const invalidInputs = {};
+
     for (let key of Object.keys(allPurchaseOrders)) {
       if (!customerName[key] || customerName[key] === '') {
-        invalids.push(key)
-        isValid = false
+        invalidInputs[key] = "error"
+        setErrorClass(errorClass => ({
+          ...errorClass,
+          ...invalidInputs
+        }))
       }
+      // else if (customerName[key] && customerName[key].length >= 1) {
+      //   invalidInputs[key] = "valid"
+      //   setErrorClass(errorClass => ({
+      //     ...errorClass,
+      //     ...invalidInputs
+      //   }))
+      // }
     }
   }
-
-  //  if invalids includes index = true, then apply errorClass
-  // onChange --- If value is present (i.e., not undefined or "") then remove errorClass
 
   const submitForm = (event) => {
     validatePurchase()
@@ -53,6 +64,15 @@ export default function Main() {
 
   const handleChange = (event, id) => {
     const text = event.target.value;
+    if (text.length >= 1) {
+      console.log('inside state', errorClass)
+      setErrorClass(errorClass => ({
+        ...errorClass,
+        ...errorClass = {
+          [id]: "valid"
+        }
+      }))
+    }
     customerOnChange(event, id);
   };
 
@@ -71,7 +91,7 @@ export default function Main() {
       customerName={customerName}
       handleChange={handleChange}
       index={index}
-      errorClass={"error"}
+      errorClass={errorClass}
       customerOrders={customerOrders}
       setCustomerOrders={setCustomerOrders}
     />
@@ -84,6 +104,7 @@ export default function Main() {
         <DragDropContext onDragEnd={handleOnDragEnd}>
           {purchaseItems}
         </DragDropContext>
+
         <ShipmentList
           setShipmentData={setShipmentData}
         />
