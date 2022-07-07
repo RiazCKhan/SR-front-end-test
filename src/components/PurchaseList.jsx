@@ -41,7 +41,7 @@ export default function PurchaseList(props) {
                     name="customer-name"
                     value={customerName[index] || ""}
                     placeholder="String"
-                    required
+                    
                     onChange={(event) => { handleChange(event, index) }}
                   />
                 </article>
@@ -53,7 +53,7 @@ export default function PurchaseList(props) {
                     name="purchase-order-number"
                     value={purchaseOrder[index] || ""}
                     placeholder="String"
-                    required
+                    
                     onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
                   />
                 </article>
@@ -65,7 +65,7 @@ export default function PurchaseList(props) {
                     name="shipper"
                     value={shipperName[index] || ""}
                     placeholder="String"
-                    required
+                    
                     onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
                   />
                 </article>
@@ -77,7 +77,7 @@ export default function PurchaseList(props) {
                     name="cases"
                     value={caseNumber[index] || ""}
                     placeholder="Number"
-                    required
+                    
                     onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
                   />
                 </article>
