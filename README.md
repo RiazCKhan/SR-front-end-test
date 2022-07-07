@@ -40,8 +40,8 @@ Update this README file by answering the questions below.
 
 ### Date Or Reflection
 
-I worked on the assignment over the course of two days July 4-5, 2022.
-On July 6. 2022 I spent time recording my answers to the questions in the README
+I worked on the assignment over the course of two days July 4-6, 2022.
+On July 7. 2022 I spent time recording my answers to the questions in the README
 
 ### Instructions to run assignment locally
 
@@ -55,7 +55,7 @@ npm start - run assignment locally
 
 ### Time spent
 
-I spent a total of 9.0 hours working on the assignment.
+I spent a total of 12.0 hours working on the assignment.
 
 ### API Changes
 
