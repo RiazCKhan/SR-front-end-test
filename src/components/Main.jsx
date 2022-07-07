@@ -52,8 +52,6 @@ export default function Main() {
   }
 
   const handleChange = (event, id) => {
-    console.log(id)
-    console.log(event.target.value)
     const text = event.target.value;
     customerOnChange(event, id);
   };
