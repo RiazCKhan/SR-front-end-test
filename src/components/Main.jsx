@@ -20,10 +20,6 @@ export default function Main() {
 
   const validatePurchase = () => {
     const allPurchaseOrders = augShipment[0].elements
-    console.log("i am validating your purchase")
-    console.log(Object.keys(customerName))
-    console.log(Object.values(customerName))
-    console.log(Object.keys(allPurchaseOrders))
 
     let isValid = true
     const invalids = []
@@ -33,10 +29,10 @@ export default function Main() {
         isValid = false
       }
     }
-
-    console.log("but is it valid? ", isValid)
-    console.log("the invalids: ", invalids)
   }
+
+  //  if invalids includes index = true, then apply errorClass
+  // onChange --- If value is present (i.e., not undefined or "") then remove errorClass
 
   const submitForm = (event) => {
     validatePurchase()
