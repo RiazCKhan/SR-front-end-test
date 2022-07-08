@@ -29,13 +29,22 @@ export default function Main() {
 
     for (let key of Object.keys(allPurchaseOrders)) {
       if (!customerName[key] || customerName[key] === '') {
-        invalidInputs[key] = "error"
-        setErrorClass(errorClass => ({
-          ...errorClass,
-          ...invalidInputs
-        }))
+        let obj = {
+          name: invalidInputs[key] = "error",
+          orderNum: invalidInputs[key] = "error",
+          shipper: invalidInputs[key] = "error",
+          case: invalidInputs[key] = "error",
+          
+        }
+        // console.log('baby', obj)
+        invalidInputs[key] = obj
       }
     }
+    // console.log('parent', invalidInputs)
+    setErrorClass(errorClass => ({
+      ...errorClass,
+      ...invalidInputs
+    }))
   }
 
   const submitForm = (event) => {
@@ -58,7 +67,7 @@ export default function Main() {
   const handleChange = (event, id) => {
     const text = event.target.value;
     if (text.length >= 1) {
-      console.log('inside state', errorClass)
+      // console.log('inside state', errorClass)
       setErrorClass(errorClass => ({
         ...errorClass,
         ...errorClass = {
@@ -70,7 +79,7 @@ export default function Main() {
   };
 
   const handleOnDragEnd = (result) => {
-    console.log(result)
+    // console.log(result)
     const orders = Array.from(customerOrders)
     const [reorderedItem] = orders.splice(result.source.index, 1);
     orders.splice(result.destination.index, 0, reorderedItem);
