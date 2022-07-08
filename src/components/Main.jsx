@@ -15,6 +15,8 @@ export default function Main() {
   const [errorClass, setErrorClass] = useState({})
 
   const [customerName, setCustomerName] = useState({})
+  const [purchaseOrder, setPurchaseOrder] = useState({})
+
 
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
@@ -22,9 +24,15 @@ export default function Main() {
   const allPurchaseOrders = augShipment[0].elements
   const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
+  const handleOnDragEnd = (result) => {
+    const orders = Array.from(customerOrders)
+    const [reorderedItem] = orders.splice(result.source.index, 1);
+    orders.splice(result.destination.index, 0, reorderedItem);
+    setCustomerOrders(orders)
+  }
+
   const validatePurchase = () => {
     const allPurchaseOrders = augShipment[0].elements
-
     const invalidInputs = {};
 
     for (let key of Object.keys(allPurchaseOrders)) {
@@ -34,13 +42,11 @@ export default function Main() {
           orderNum: invalidInputs[key] = "error",
           shipper: invalidInputs[key] = "error",
           case: invalidInputs[key] = "error",
-          
+
         }
-        // console.log('baby', obj)
         invalidInputs[key] = obj
       }
     }
-    // console.log('parent', invalidInputs)
     setErrorClass(errorClass => ({
       ...errorClass,
       ...invalidInputs
@@ -50,10 +56,10 @@ export default function Main() {
   const submitForm = (event) => {
     validatePurchase()
 
-    // const formData = {
-    //   purchaseData,
-    //   shipmentData
-    // }
+    const formData = {
+      purchaseData,
+      shipmentData
+    }
 
     // axios.post('api/form', { formData })
     //   .then(res => console.log('Sending Data: ', formData))
@@ -67,7 +73,6 @@ export default function Main() {
   const handleChange = (event, id) => {
     const text = event.target.value;
     if (text.length >= 1) {
-      // console.log('inside state', errorClass)
       setErrorClass(errorClass => ({
         ...errorClass,
         ...errorClass = {
@@ -78,14 +83,6 @@ export default function Main() {
     customerOnChange(event, id);
   };
 
-  const handleOnDragEnd = (result) => {
-    // console.log(result)
-    const orders = Array.from(customerOrders)
-    const [reorderedItem] = orders.splice(result.source.index, 1);
-    orders.splice(result.destination.index, 0, reorderedItem);
-    setCustomerOrders(orders)
-  }
-
   const purchaseItems = customerOrders.map((order, index) => (
     <PurchaseList
       key={order.id}
@@ -95,7 +92,6 @@ export default function Main() {
       index={index}
       errorClass={errorClass}
       customerOrders={customerOrders}
-      setCustomerOrders={setCustomerOrders}
     />
   ))
 
