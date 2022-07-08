@@ -12,17 +12,33 @@ import './Main.css'
 
 export default function Main() {
 
-  const [errorClass, setErrorClass] = useState({})
-
   const [customerName, setCustomerName] = useState({})
   const [purchaseOrder, setPurchaseOrder] = useState({})
-
 
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
 
   const allPurchaseOrders = augShipment[0].elements
   const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
+
+  const initializeFields = () => {
+    const invalidInputs = {};
+    for (let key of Object.keys(allPurchaseOrders)) {
+      if (!customerName[key] || customerName[key] === '') {
+        let obj = {
+          name: invalidInputs[key] = "valid",
+          orderNum: invalidInputs[key] = "valid",
+          shipper: invalidInputs[key] = "valid",
+          case: invalidInputs[key] = "valid",
+
+        }
+        invalidInputs[key] = obj
+      }
+    }
+    return invalidInputs
+  }
+
+  const [errorClass, setErrorClass] = useState(initializeFields())
 
   const handleOnDragEnd = (result) => {
     const orders = Array.from(customerOrders)
@@ -73,10 +89,11 @@ export default function Main() {
   const handleChange = (event, id) => {
     const text = event.target.value;
     if (text.length >= 1) {
-      setErrorClass(errorClass => ({
-        ...errorClass,
-        ...errorClass = {
-          [id]: "valid"
+      setErrorClass(prevState => ({
+        ...prevState,
+        [id]: {
+          ...prevState[id],
+          name: "valid"
         }
       }))
     }
