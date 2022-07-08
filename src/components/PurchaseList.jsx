@@ -5,27 +5,20 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
-import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData } from "../helpers/functions";
+import { aggregateCustomerShipData } from "../helpers/functions";
 
 import "./PurchaseList.css";
 
 export default function PurchaseList(props) {
 
-  const { customerName, handleChange, index, errorClass, setPurchaseData, customerOrders, setCustomerOrders } = props
-
-  const [purchaseOrder, setPurchaseOrder] = useState({})
-  const [shipperName, setShipperName] = useState({})
-  const [caseNumber, setCaseNumber] = useState({})
+  const { customerName, purchaseOrder, shipperName, caseNumber, handleChange, errorClass, setPurchaseData, customerOrders, index } = props
 
   // useEffect Updating Parent State
   useEffect(() => {
     setPurchaseData(aggregateCustomerShipData(customerName, purchaseOrder, shipperName, caseNumber))
   }, [setPurchaseData, customerName, purchaseOrder, shipperName, caseNumber])
 
-
   const order = customerOrders[index]
-
-  console.log('error class @ index',  )
 
   return (
     <Droppable key={order.id} droppableId={order.id} index={index}>
@@ -42,7 +35,6 @@ export default function PurchaseList(props) {
                     name="customer-name"
                     value={customerName[index] || ""}
                     placeholder="String"
-                    
                     onChange={(event) => { handleChange(event, index) }}
                   />
                 </article>
@@ -50,36 +42,36 @@ export default function PurchaseList(props) {
                 <article>
                   <div>{order.list[1]['name']}</div>
                   <input
-                    typeof='text'
+                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
+                    type='text'
                     name="purchase-order-number"
                     value={purchaseOrder[index] || ""}
                     placeholder="String"
-
-                    onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
+                    onChange={(event) => { handleChange(event, index) }}
                   />
                 </article>
 
                 <article>
                   <div>{order.list[2]['name']}</div>
                   <input
+                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
                     type="text"
                     name="shipper"
                     value={shipperName[index] || ""}
                     placeholder="String"
-
-                    onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
+                    onChange={(event) => { handleChange(event, index) }}
                   />
                 </article>
 
                 <article>
                   <div>{order.list[3]['name']}</div>
                   <input
+                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
                     type="text"
                     name="cases"
                     value={caseNumber[index] || ""}
                     placeholder="Number"
-
-                    onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
+                    onChange={(event) => { handleChange(event, index) }}
                   />
                 </article>
               </li>
