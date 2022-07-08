@@ -25,6 +25,8 @@ export default function PurchaseList(props) {
 
   const order = customerOrders[index]
 
+  console.log('error class @ index',  )
+
   return (
     <Droppable key={order.id} droppableId={order.id} index={index}>
       {(provided) => (
@@ -35,7 +37,7 @@ export default function PurchaseList(props) {
                 <article>
                   <div>{order.list[0]['name']}</div>
                   <input
-                    className={errorClass[index]}
+                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
                     type="text"
                     name="customer-name"
                     value={customerName[index] || ""}
@@ -52,7 +54,7 @@ export default function PurchaseList(props) {
                     name="purchase-order-number"
                     value={purchaseOrder[index] || ""}
                     placeholder="String"
-                    
+
                     onChange={(event) => setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))}
                   />
                 </article>
@@ -64,7 +66,7 @@ export default function PurchaseList(props) {
                     name="shipper"
                     value={shipperName[index] || ""}
                     placeholder="String"
-                    
+
                     onChange={(event) => setShipperName(updateShipperHandler(index, shipperName, event.target.value))}
                   />
                 </article>
@@ -76,7 +78,7 @@ export default function PurchaseList(props) {
                     name="cases"
                     value={caseNumber[index] || ""}
                     placeholder="Number"
-                    
+
                     onChange={(event) => setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))}
                   />
                 </article>
