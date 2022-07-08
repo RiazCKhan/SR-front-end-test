@@ -6,7 +6,7 @@ import augShipment from '../data/api-data1';
 
 import { DragDropContext } from "react-beautiful-dnd";
 
-import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler, aggregateCustomerShipData } from "../helpers/functions";
+import { updateNameHandler, updatePurchaseHandler, updateShipperHandler, updateCaseHandler } from "../helpers/functions";
 
 import './Main.css'
 
@@ -14,6 +14,8 @@ export default function Main() {
 
   const [customerName, setCustomerName] = useState({})
   const [purchaseOrder, setPurchaseOrder] = useState({})
+  const [shipperName, setShipperName] = useState({})
+  const [caseNumber, setCaseNumber] = useState({})
 
   const [purchaseData, setPurchaseData] = useState([])
   const [shipmentData, setShipmentData] = useState([])
@@ -21,7 +23,23 @@ export default function Main() {
   const allPurchaseOrders = augShipment[0].elements
   const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
-  const initializeFields = () => {
+  // const initializeFields = () => {
+  //   const fields = {};
+  //   for (let key of Object.keys(allPurchaseOrders)) {
+  //     if (!customerName[key] || customerName[key] === '') {
+  //       let obj = {
+  //         name: fields[key],
+  //         orderNum: fields[key],
+  //         shipper: fields[key],
+  //         case: fields[key],
+  //       }
+  //       fields[key] = obj
+  //     }
+  //   }
+  //   return fields
+  // }
+
+  const initializeVal = () => {
     const invalidInputs = {};
     for (let key of Object.keys(allPurchaseOrders)) {
       if (!customerName[key] || customerName[key] === '') {
@@ -38,7 +56,7 @@ export default function Main() {
     return invalidInputs
   }
 
-  const [errorClass, setErrorClass] = useState(initializeFields())
+  const [errorClass, setErrorClass] = useState(initializeVal())
 
   const handleOnDragEnd = (result) => {
     const orders = Array.from(customerOrders)
@@ -83,7 +101,23 @@ export default function Main() {
   }
 
   const customerOnChange = (event, index) => {
+    console.log('customerName', customerName, index)
     setCustomerName(updateNameHandler(index, customerName, event.target.value))
+  }
+
+  const purchaseOrderOnChange = (event, index) => {
+    console.log('purchaseOrder', purchaseOrder, index)
+    setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))
+  }
+
+  const shipNameOnChange = (event, index) => {
+    console.log('shipperName', shipperName, index)
+    setShipperName(updateShipperHandler(index, shipperName, event.target.value))
+  }
+
+  const caseNumOnChange = (event, index) => {
+    console.log('caseNumber', caseNumber, index)
+    setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))
   }
 
   const handleChange = (event, id) => {
@@ -97,7 +131,11 @@ export default function Main() {
         }
       }))
     }
+
     customerOnChange(event, id);
+    purchaseOrderOnChange(event, id)
+    // shipNameOnChange(event, id)
+    // caseNumOnChange(event, id)
   };
 
   const purchaseItems = customerOrders.map((order, index) => (
@@ -105,6 +143,9 @@ export default function Main() {
       key={order.id}
       setPurchaseData={setPurchaseData}
       customerName={customerName}
+      purchaseOrder={purchaseOrder}
+      shipperName={shipperName}
+      caseNumber={caseNumber}
       handleChange={handleChange}
       index={index}
       errorClass={errorClass}
