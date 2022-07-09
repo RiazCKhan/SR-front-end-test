@@ -64,7 +64,7 @@ export default function Main() {
   const validatePurchase = () => {
     const allPurchaseOrders = augShipment[0].elements
     const invalidInputs = {};
-
+    let isValid = true;
     for (let key of Object.keys(allPurchaseOrders)) {
       if (!customerName[key] || customerName[key] === '') {
         let obj = {
@@ -72,15 +72,16 @@ export default function Main() {
           orderNum: invalidInputs[key] = "error",
           shipper: invalidInputs[key] = "error",
           case: invalidInputs[key] = "error",
-
         }
         invalidInputs[key] = obj
+        isValid = false
       }
     }
     setErrorClass(errorClass => ({
       ...errorClass,
       ...invalidInputs
     }))
+    return isValid
   }
 
   const validateShipment = () => {
@@ -104,20 +105,26 @@ export default function Main() {
       ...shipError,
       ...newShipError
     }))
+
+    return Object.keys(newShipError).length === 0
   }
 
   const submitForm = (event) => {
-    validatePurchase()
-    validateShipment()
 
-    const formData = {
-      purchaseData,
-      shipmentData
+    const purchaseCheck = validatePurchase()
+    const shipmentCheck = validateShipment()
+
+    if (purchaseCheck && shipmentCheck) {
+      const formData = {
+        purchaseData,
+        shipmentData
+      }
+
+      axios.post('api/form', { formData })
+        .then(res => console.log('Sending Data: ', formData))
+        .catch(error => console.log('Oops... Something went wrong', error))
     }
-
-    axios.post('api/form', { formData })
-      .then(res => console.log('Sending Data: ', formData))
-      .catch(error => console.log('Oops... Something went wrong', error))
+    console.log('Missing Inputs')
   }
 
   const customerOnChange = (event, index) => {
