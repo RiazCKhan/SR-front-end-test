@@ -23,22 +23,6 @@ export default function Main() {
   const allPurchaseOrders = augShipment[0].elements
   const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
-  // const initializeFields = () => {
-  //   const fields = {};
-  //   for (let key of Object.keys(allPurchaseOrders)) {
-  //     if (!customerName[key] || customerName[key] === '') {
-  //       let obj = {
-  //         name: fields[key],
-  //         orderNum: fields[key],
-  //         shipper: fields[key],
-  //         case: fields[key],
-  //       }
-  //       fields[key] = obj
-  //     }
-  //   }
-  //   return fields
-  // }
-
   const initializeVal = () => {
     const invalidInputs = {};
     for (let key of Object.keys(allPurchaseOrders)) {
