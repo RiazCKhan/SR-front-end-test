@@ -24,11 +24,6 @@
 }
 
 .error {
-  background-color: red;
-  opacity: 0.5;
-}
-
-.valid {
-  background-color: aliceblue;
-  
+  border: 0.135rem solid;
+  border-color: red;
 }

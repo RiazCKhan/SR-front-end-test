@@ -2,10 +2,10 @@ import './ShipmentListItem.css'
 
 export default function ShipmentListItem(props) {
 
-  const { driver, drivers, setDriverName, 
+  const { driver, drivers, setDriverName,
     temp, tempNumber, setTempNumber,
     truck, trucks, setTruckName,
-    trailer, trailers, setTrailerSize
+    trailer, trailers, setTrailerSize, handleShipmentChange, shipError
   } = props
 
   const allDrivers = Object.values(drivers)
@@ -34,8 +34,9 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{driver}</div>
-          <select className='shipment-content' required
-            onChange={(event) => setDriverName(event.target.value)} >
+          <select className={`${shipError.driver} shipment-content`}
+            onChange={(event) => handleShipmentChange(event, "driver", setDriverName)} 
+            >
             <option value=""> Select </option>
             {driverOptions}
           </select>
@@ -46,19 +47,21 @@ export default function ShipmentListItem(props) {
           <input
             type="text"
             name="temp"
-            className='shipment-content-temp'
+            className={`${shipError.tempNum} shipment-content-temp`}
             placeholder="Number"
             value={tempNumber || ""}
-            required
-            onChange={(event) => setTempNumber(event.target.value)} />
+
+            onChange={(event) => handleShipmentChange(event, "tempNum", setTempNumber)} 
+            />
         </article>
       </section>
 
       <section className='shipment-card'>
         <article>
           <div>{truck}</div>
-          <select className='shipment-content' required
-            onChange={(event) => setTruckName(event.target.value)} >
+          <select className={`${shipError.truck} shipment-content`}
+            onChange={(event) => handleShipmentChange(event, "truck", setTruckName)} 
+            >
             <option value=""> Select </option>
             {truckOptions}
           </select>
@@ -66,8 +69,9 @@ export default function ShipmentListItem(props) {
 
         <article>
           <div>{trailer}</div>
-          <select className='shipment-content' required
-            onChange={(event) => setTrailerSize(event.target.value)} >
+          <select className={`${shipError.trailer} shipment-content`}
+            onChange={(event) => handleShipmentChange(event, "trailer", setTrailerSize)} 
+            >
             <option value=""> Select </option>
             {trailerOptions}
           </select>
