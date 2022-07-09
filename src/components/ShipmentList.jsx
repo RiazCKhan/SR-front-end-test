@@ -4,12 +4,7 @@ import augShipment from "../data/api-data1";
 
 export default function ShipmentList(props) {
 
-  const { setShipmentData } = props
-
-  const [driverName, setDriverName] = useState("")
-  const [tempNumber, setTempNumber] = useState("")
-  const [truckName, setTruckName] = useState("")
-  const [trailerSize, setTrailerSize] = useState("")
+  const { setShipmentData, shipError, setShipError, handleShipmentChange, driverName, setDriverName, setTempNumber, tempNumber, truckName, setTruckName, trailerSize, setTrailerSize } = props
 
   // useEffect Updating Parent State
   useEffect(() => {
@@ -19,7 +14,6 @@ export default function ShipmentList(props) {
       truckName,
       trailerSize
     }
-
     setShipmentData(aggregateShipmentData)
   }, [setShipmentData, driverName, tempNumber, truckName, trailerSize])
 
@@ -30,6 +24,7 @@ export default function ShipmentList(props) {
         key={order.id}
         driver={order.list[0]['name']}
         drivers={{ ...order.list[0]['elements'] }}
+        driverName={driverName}
         setDriverName={setDriverName}
 
         temp={order.list[1]['name']}
@@ -38,11 +33,16 @@ export default function ShipmentList(props) {
 
         truck={order.list[2]['name']}
         trucks={{ ...order.list[2]['elements'] }}
+        truckName={truckName}
         setTruckName={setTruckName}
 
         trailer={order.list[3]['name']}
         trailers={{ ...order.list[3]['elements'] }}
+        trailerSize={trailerSize}
         setTrailerSize={setTrailerSize}
+
+        handleShipmentChange={handleShipmentChange}
+        shipError={shipError}
       />
     )
   })
