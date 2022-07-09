@@ -34,7 +34,7 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{driver}</div>
-          <select className='shipment-content' required
+          <select className='shipment-content' 
             onChange={(event) => setDriverName(event.target.value)} >
             <option value=""> Select </option>
             {driverOptions}
@@ -49,7 +49,7 @@ export default function ShipmentListItem(props) {
             className='shipment-content-temp'
             placeholder="Number"
             value={tempNumber || ""}
-            required
+            
             onChange={(event) => setTempNumber(event.target.value)} />
         </article>
       </section>
@@ -57,7 +57,7 @@ export default function ShipmentListItem(props) {
       <section className='shipment-card'>
         <article>
           <div>{truck}</div>
-          <select className='shipment-content' required
+          <select className='shipment-content' 
             onChange={(event) => setTruckName(event.target.value)} >
             <option value=""> Select </option>
             {truckOptions}
@@ -66,7 +66,7 @@ export default function ShipmentListItem(props) {
 
         <article>
           <div>{trailer}</div>
-          <select className='shipment-content' required
+          <select className='shipment-content' 
             onChange={(event) => setTrailerSize(event.target.value)} >
             <option value=""> Select </option>
             {trailerOptions}
