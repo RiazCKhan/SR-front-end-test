@@ -23,22 +23,6 @@ export default function Main() {
   const allPurchaseOrders = augShipment[0].elements
   const [customerOrders, setCustomerOrders] = useState(allPurchaseOrders)
 
-  // const initializeFields = () => {
-  //   const fields = {};
-  //   for (let key of Object.keys(allPurchaseOrders)) {
-  //     if (!customerName[key] || customerName[key] === '') {
-  //       let obj = {
-  //         name: fields[key],
-  //         orderNum: fields[key],
-  //         shipper: fields[key],
-  //         case: fields[key],
-  //       }
-  //       fields[key] = obj
-  //     }
-  //   }
-  //   return fields
-  // }
-
   const initializeVal = () => {
     const invalidInputs = {};
     for (let key of Object.keys(allPurchaseOrders)) {
@@ -101,22 +85,18 @@ export default function Main() {
   }
 
   const customerOnChange = (event, index) => {
-    console.log('customerName', customerName, index)
     setCustomerName(updateNameHandler(index, customerName, event.target.value))
   }
 
   const purchaseOrderOnChange = (event, index) => {
-    console.log('purchaseOrder', purchaseOrder, index)
     setPurchaseOrder(updatePurchaseHandler(index, purchaseOrder, event.target.value))
   }
 
   const shipNameOnChange = (event, index) => {
-    console.log('shipperName', shipperName, index)
     setShipperName(updateShipperHandler(index, shipperName, event.target.value))
   }
 
   const caseNumOnChange = (event, index) => {
-    console.log('caseNumber', caseNumber, index)
     setCaseNumber(updateCaseHandler(index, caseNumber, event.target.value))
   }
 
@@ -131,11 +111,49 @@ export default function Main() {
         }
       }))
     }
-
     customerOnChange(event, id);
+  };
+
+  const handleChange2 = (event, id) => {
+    const text = event.target.value;
+    if (text.length >= 1) {
+      setErrorClass(prevState => ({
+        ...prevState,
+        [id]: {
+          ...prevState[id],
+          orderNum: "valid"
+        }
+      }))
+    }
     purchaseOrderOnChange(event, id)
-    // shipNameOnChange(event, id)
-    // caseNumOnChange(event, id)
+  };
+
+  const handleChange3 = (event, id) => {
+    const text = event.target.value;
+    if (text.length >= 1) {
+      setErrorClass(prevState => ({
+        ...prevState,
+        [id]: {
+          ...prevState[id],
+          shipper: "valid"
+        }
+      }))
+    }
+    shipNameOnChange(event, id)
+  };
+
+  const handleChange4 = (event, id) => {
+    const text = event.target.value;
+    if (text.length >= 1) {
+      setErrorClass(prevState => ({
+        ...prevState,
+        [id]: {
+          ...prevState[id],
+          case: "valid"
+        }
+      }))
+    }
+    caseNumOnChange(event, id)
   };
 
   const purchaseItems = customerOrders.map((order, index) => (
@@ -147,6 +165,9 @@ export default function Main() {
       shipperName={shipperName}
       caseNumber={caseNumber}
       handleChange={handleChange}
+      handleChange2={handleChange2}
+      handleChange3={handleChange3}
+      handleChange4={handleChange4}
       index={index}
       errorClass={errorClass}
       customerOrders={customerOrders}

@@ -11,7 +11,7 @@ import "./PurchaseList.css";
 
 export default function PurchaseList(props) {
 
-  const { customerName, purchaseOrder, shipperName, caseNumber, handleChange, errorClass, setPurchaseData, customerOrders, index } = props
+  const { customerName, purchaseOrder, shipperName, caseNumber, handleChange, handleChange2, handleChange3, handleChange4, errorClass, setPurchaseData, customerOrders, index } = props
 
   // useEffect Updating Parent State
   useEffect(() => {
@@ -42,36 +42,36 @@ export default function PurchaseList(props) {
                 <article>
                   <div>{order.list[1]['name']}</div>
                   <input
-                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
+                    className={errorClass[index] === undefined ? null : errorClass[index]['orderNum']}
                     type='text'
                     name="purchase-order-number"
                     value={purchaseOrder[index] || ""}
                     placeholder="String"
-                    onChange={(event) => { handleChange(event, index) }}
+                    onChange={(event) => { handleChange2(event, index) }}
                   />
                 </article>
 
                 <article>
                   <div>{order.list[2]['name']}</div>
                   <input
-                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
+                    className={errorClass[index] === undefined ? null : errorClass[index]['shipper']}
                     type="text"
                     name="shipper"
                     value={shipperName[index] || ""}
                     placeholder="String"
-                    onChange={(event) => { handleChange(event, index) }}
+                    onChange={(event) => { handleChange3(event, index) }}
                   />
                 </article>
 
                 <article>
                   <div>{order.list[3]['name']}</div>
                   <input
-                    className={errorClass[index] === undefined ? null : errorClass[index]['name']}
+                    className={errorClass[index] === undefined ? null : errorClass[index]['case']}
                     type="text"
                     name="cases"
                     value={caseNumber[index] || ""}
                     placeholder="Number"
-                    onChange={(event) => { handleChange(event, index) }}
+                    onChange={(event) => { handleChange4(event, index) }}
                   />
                 </article>
               </li>
