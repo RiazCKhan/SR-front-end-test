@@ -40,8 +40,7 @@ Update this README file by answering the questions below.
 
 ### Date Or Reflection
 
-I worked on the assignment over the course of two days July 4-6, 2022.
-On July 7. 2022 I spent time recording my answers to the questions in the README
+I worked on the assignment over the course of 7
 
 ### Instructions to run assignment locally
 
@@ -55,7 +54,7 @@ npm start - run assignment locally
 
 ### Time spent
 
-I spent a total of 12.0 hours working on the assignment.
+I spent a total of 28 hours working on the assignment.
 
 ### API Changes
 
@@ -73,7 +72,8 @@ In the real-world I am certain this application would have more components / pag
 
 1. structure: the introduction of additional features means the structure would need to be revisited to ensure adequate ‘water falling’ (parent-child).
 2. state management: given an opportunity to converse with peers a clearer state management solution to the customer form can also be found and applied. 
-3. modularity: there are segments of my application that are not DRY (repeated code). The application can benefit from refactoring. 
+3. modularity: there are segments of my application that are not DRY (repeated code). The application can benefit from refactoring.
+4. The handleChange 1-4 could have been consolidated into one HandleChange
 
 All things considered in a real world application there are most likely additional technologies to take into consideration such as Redux.
 
@@ -88,7 +88,7 @@ The ShipmentListItem component is capable of re-useability. However the componen
 
 ### What did you not include in your solution that you want us to know about? Were you short on time and not able to include something that you want us to know about? Please list it here so that we know that you considered it.
 
-1. CSS Media Queries, the application is not responsive and is best viewed between 1125px x 895px (and up)
+1. CSS Media Queries, the application is not responsive.
 2. Accessibility, the application is not ready to interface with accessibility tools like screen readers. 
 
 ### Other information about your submission that you feel it's important that we know if applicable.
