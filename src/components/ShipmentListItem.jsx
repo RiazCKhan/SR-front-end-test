@@ -2,10 +2,10 @@ import './ShipmentListItem.css'
 
 export default function ShipmentListItem(props) {
 
-  const { driver, drivers, driverName, setDriverName,
+  const { driver, drivers, setDriverName,
     temp, tempNumber, setTempNumber,
-    truck, trucks, truckName, setTruckName,
-    trailer, trailers, trailerSize, setTrailerSize, handleShipmentChange, shipError
+    truck, trucks, setTruckName,
+    trailer, trailers, setTrailerSize, handleShipmentChange, shipError
   } = props
 
 console.log(shipError)

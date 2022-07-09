@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import ShipmentListItem from "./ShipmentListItem";
 import augShipment from "../data/api-data1";
 
 export default function ShipmentList(props) {
 
-  const { setShipmentData, shipError, setShipError, handleShipmentChange, driverName, setDriverName, setTempNumber, tempNumber, truckName, setTruckName, trailerSize, setTrailerSize } = props
+  const { setShipmentData, shipError, handleShipmentChange,
+     driverName, setDriverName, setTempNumber,
+      tempNumber, truckName, setTruckName, trailerSize, setTrailerSize } = props
 
   // useEffect Updating Parent State
   useEffect(() => {

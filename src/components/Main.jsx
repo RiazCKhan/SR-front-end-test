@@ -115,9 +115,9 @@ export default function Main() {
       shipmentData
     }
 
-    // axios.post('api/form', { formData })
-    //   .then(res => console.log('Sending Data: ', formData))
-    //   .catch(error => console.log('Oops... Something went wrong', error))
+    axios.post('api/form', { formData })
+      .then(res => console.log('Sending Data: ', formData))
+      .catch(error => console.log('Oops... Something went wrong', error))
   }
 
   const customerOnChange = (event, index) => {
