@@ -23,3 +23,12 @@
   color: #007bff;
 }
 
+.error {
+  background-color: red;
+  opacity: 0.5;
+}
+
+.valid {
+  background-color: aliceblue;
+  
+}
