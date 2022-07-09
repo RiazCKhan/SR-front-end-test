@@ -8,8 +8,6 @@ export default function ShipmentListItem(props) {
     trailer, trailers, setTrailerSize, handleShipmentChange, shipError
   } = props
 
-console.log(shipError)
-
   const allDrivers = Object.values(drivers)
   const driverOptions = allDrivers.map((driver) => {
     return (
